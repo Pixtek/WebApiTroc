@@ -6,11 +6,12 @@ namespace WebApiTroc.Controllers;
 
 [ApiController]
 [Route("api/v1/[Controller]")]
-public class TrocController :ControllerBase
+public class UserController :ControllerBase
 {
     private readonly IUsers _IUsers;
+    
 
-    public TrocController(IUsers iUsers)
+    public UserController(IUsers iUsers)
     {
         _IUsers = iUsers;
     }

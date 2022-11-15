@@ -7,7 +7,5 @@ public class Users
     public string Pseudo {get;set;}
     public string Localite {get;set;}
     public string Mdp {get;set;}
-
     
- 
 }

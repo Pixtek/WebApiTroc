@@ -13,7 +13,8 @@ public class TrocContext :DbContext
     }
 
     public DbSet<Users> Utilisateurs { get; set; }
-   
+    public DbSet<Article> Articles { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -24,6 +25,7 @@ public class TrocContext :DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<Users>(entity =>
         {
             entity.ToTable("Users");
@@ -34,6 +36,13 @@ public class TrocContext :DbContext
             entity.Property(utilisateur => utilisateur.Localite).HasColumnName("localite");
             entity.Property(utilisateur => utilisateur.Mdp).HasColumnName("mdp");
         });
+        
+        modelBuilder.Entity<Article>(entity =>
+        {
+            
+        });
+
+
 
     }
 }
