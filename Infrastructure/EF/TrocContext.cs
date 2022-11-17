@@ -39,7 +39,16 @@ public class TrocContext :DbContext
         
         modelBuilder.Entity<Article>(entity =>
         {
-            
+            entity.ToTable("Articles");
+            entity.HasKey(article => article.Id);
+            entity.Property(article => article.Id).HasColumnName("id_Article");
+            // property ou haskey peut être à modifier!!!!
+            entity.Property(article => article.IdUser).HasColumnName("id_User");
+            entity.Property(article => article.CategoryName).HasColumnName("nomCategorie");
+            entity.Property(article => article.Name).HasColumnName("nom");
+            entity.Property(article => article.URLImage).HasColumnName("urlImage");
+            entity.Property(article => article.PublicationDate).HasColumnName("datePubli");
+
         });
 
 
