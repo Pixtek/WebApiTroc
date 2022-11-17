@@ -3470,19 +3470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\darka\\.nuget\\packages\\": {}
+    "C:\\Users\\Florian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Controller\\Controller.csproj",
+      "projectUniqueName": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Controller\\Controller.csproj",
       "projectName": "Controller",
-      "projectPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Controller\\Controller.csproj",
-      "packagesPath": "C:\\Users\\darka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Controller\\obj\\",
+      "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Controller\\Controller.csproj",
+      "packagesPath": "C:\\Users\\Florian\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Controller\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\darka\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Florian\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3494,8 +3494,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

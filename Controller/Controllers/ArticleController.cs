@@ -22,9 +22,9 @@ public class ArticleController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Article> Create(int idUser, string categoryName, string name, string urlImage,
-        DateTime publicationDate)
+    public ActionResult<Article> Create(int idUser, string name, string urlImage,
+        DateTime publicationDate,string nomCat)
     {
-        return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate));
+        return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate,nomCat));
     }
 }

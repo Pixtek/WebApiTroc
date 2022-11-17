@@ -17,13 +17,13 @@ public class ArticleRepository :IArticle
         return context.Articles.ToList();
     }
 
-    public Article Create(int idUser,  string name, string urlImage, DateTime publicationDate)
+    public Article Create(int idUser,  string name, string urlImage, DateTime publicationDate,string nomCat)
     {
         using var context = _trocContextProvider.NewContext();
         var article = new Article()
         {
             IdUser = idUser,
-            CategoryName = "",
+            CategoryName = nomCat,
             Name = name,
             URLImage = urlImage,
             PublicationDate = publicationDate
