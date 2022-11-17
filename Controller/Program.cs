@@ -14,7 +14,18 @@ builder.Services.AddScoped<IConnectionStringProvider, ConnectionStringProvider>(
 builder.Services.AddScoped<IUsers, UsersRepository>();
 builder.Services.AddScoped<TrocContextProvider>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Dev", policyBuilder =>
+    {
+        policyBuilder.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -24,6 +35,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("Dev");
+
 
 app.UseAuthorization();
 

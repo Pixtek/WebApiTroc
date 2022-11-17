@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programmes\\guill\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {}
+    "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\Programmes\\guill\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+    "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programmes\\guill\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Programmes\\guill\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\guill\\.nuget\\packages\\",
-        "outputPath": "D:\\Programmes\\guill\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\darka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\guill\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\darka\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\guill\\.dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
