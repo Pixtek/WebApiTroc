@@ -1,3 +1,4 @@
+using Domain;
 using Infrastructure.EF;
 using Microsoft.Identity.Client;
 using WebApiTroc.Controllers;
@@ -11,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IConnectionStringProvider, ConnectionStringProvider>();
+builder.Services.AddScoped<IArticle, ArticleRepository>();
 builder.Services.AddScoped<IUsers, UsersRepository>();
 builder.Services.AddScoped<TrocContextProvider>();
 

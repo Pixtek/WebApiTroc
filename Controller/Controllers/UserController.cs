@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApiTroc.Controllers;
 
 [ApiController]
-[Route("api/v1/[Controller]")]
+[Route("api/v1/Users")]
 public class UserController :ControllerBase
 {
     private readonly IUsers _IUsers;
