@@ -30,7 +30,18 @@ public class UserController :ControllerBase
     [HttpPost]
     public ActionResult<DbUser> Create(string email, string pseudo, string localite, string mdp)
     {
-        return Ok(_IUsers.Create( email,  pseudo,  localite,  mdp));
+        try
+        {
+            return Ok(_IUsers.Create( email,  pseudo,  localite,  mdp));
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(new
+            {
+                e.Message
+            });
+        }
+        
     }
     
     [HttpGet]
