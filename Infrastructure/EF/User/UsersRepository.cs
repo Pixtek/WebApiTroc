@@ -1,6 +1,7 @@
-﻿using Domain;
+﻿
+using Infrastructure.EF.DbEntities;
 
-namespace Infrastructure.EF;
+namespace Infrastructure.EF.User;
 
 public class UsersRepository : IUsers
 {
@@ -11,16 +12,16 @@ public class UsersRepository : IUsers
         _trocContextProvider = trocContextProvider;
     }
 
-    public IEnumerable<Users> GetAll()
+    public IEnumerable<DbUser> GetAll()
     {
         using var context = _trocContextProvider.NewContext();
         return context.Utilisateurs.ToList();
     }
 
-    public Users Create(string email, string pseudo, string localite, string mdp)
+    public DbUser Create(string email, string pseudo, string localite, string mdp)
     {
         using var context = _trocContextProvider.NewContext();
-        var user = new Users()
+        var user = new DbUser()
         {
             Email = email,
             Pseudo = pseudo,
@@ -29,6 +30,16 @@ public class UsersRepository : IUsers
         };
         context.Utilisateurs.Add(user);
         context.SaveChanges();
+        return user;
+    }
+
+    public DbUser FetchById(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var user = context.Utilisateurs.FirstOrDefault(u => u.Id == id);
+
+        if (user == null) throw new KeyNotFoundException($"User with id {id} has not been found");
+
         return user;
     }
 }

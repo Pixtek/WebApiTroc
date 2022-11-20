@@ -1,5 +1,8 @@
-﻿using Domain;
-using Infrastructure.EF;
+﻿
+using Application.UseCases.Users;
+using Application.UseCases.Users.Dto;
+using Infrastructure.EF.DbEntities;
+using Infrastructure.EF.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiTroc.Controllers;
@@ -9,22 +12,45 @@ namespace WebApiTroc.Controllers;
 public class UserController :ControllerBase
 {
     private readonly IUsers _IUsers;
+    private readonly UseCaseFetchById _useCaseFetchById;
     
 
-    public UserController(IUsers iUsers)
+    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById)
     {
         _IUsers = iUsers;
+        _useCaseFetchById = useCaseFetchById;
     }
 
     [HttpGet]
-    public IEnumerable<Users> GetAll()
+    public IEnumerable<DbUser> GetAll()
     {
         return _IUsers.GetAll();
     }
 
     [HttpPost]
-    public ActionResult<Users> Create(string email, string pseudo, string localite, string mdp)
+    public ActionResult<DbUser> Create(string email, string pseudo, string localite, string mdp)
     {
         return Ok(_IUsers.Create( email,  pseudo,  localite,  mdp));
     }
+    
+    [HttpGet]
+    [Route("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<DtoOutputUser> FetchById(int id)
+    {
+        try
+        {
+            return _useCaseFetchById.Execute(id);
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(new
+            {
+                e.Message
+            });
+        }
+    }
+    
+
 }

@@ -10,3 +10,8 @@ C:\Users\mathi\RiderProjects\WebApiTroc\Application\obj\Debug\net6.0\Application
 C:\Users\mathi\RiderProjects\WebApiTroc\Application\obj\Debug\net6.0\refint\Application.dll
 C:\Users\mathi\RiderProjects\WebApiTroc\Application\obj\Debug\net6.0\Application.pdb
 C:\Users\mathi\RiderProjects\WebApiTroc\Application\obj\Debug\net6.0\ref\Application.dll
+C:\Users\mathi\RiderProjects\WebApiTroc\Application\bin\Debug\net6.0\Domain.dll
+C:\Users\mathi\RiderProjects\WebApiTroc\Application\bin\Debug\net6.0\Domain.pdb
+C:\Users\mathi\RiderProjects\WebApiTroc\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+C:\Users\mathi\RiderProjects\WebApiTroc\Application\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\mathi\RiderProjects\WebApiTroc\Application\bin\Debug\net6.0\Infrastructure.pdb

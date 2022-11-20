@@ -1,6 +1,6 @@
-﻿using Domain;
+﻿using Infrastructure.EF.DbEntities;
 
-namespace Infrastructure.EF;
+namespace Infrastructure.EF.Article;
 
 public class ArticleRepository :IArticle
 {
@@ -11,16 +11,16 @@ public class ArticleRepository :IArticle
         _trocContextProvider = trocContextProvider;
     }
 
-    public IEnumerable<Article> GetAll()
+    public IEnumerable<DbArticle> GetAll()
     {
         using var context = _trocContextProvider.NewContext();
         return context.Articles.ToList();
     }
 
-    public Article Create(int idUser,  string name, string urlImage, DateTime publicationDate,string nomCat)
+    public DbArticle Create(int idUser,  string name, string urlImage, DateTime publicationDate,string nomCat)
     {
         using var context = _trocContextProvider.NewContext();
-        var article = new Article()
+        var article = new DbArticle()
         {
             IdUser = idUser,
             CategoryName = nomCat,

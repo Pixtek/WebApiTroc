@@ -1,8 +1,9 @@
-﻿using Infrastructure.EF;
+﻿
+using Infrastructure.EF;
 
-namespace WebApiTroc.Controllers;
+namespace WebApiTroc;
 
-public class ConnectionStringProvider :IConnectionStringProvider
+public class ConnectionStringProvider : IConnectionStringProvider
 {
     private readonly IConfiguration _configuration;
 
@@ -10,6 +11,8 @@ public class ConnectionStringProvider :IConnectionStringProvider
     {
         _configuration = configuration;
     }
+
+
 
     public string getConnectionString(string key)
     {
