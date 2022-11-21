@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Infrastructure.EF.DbEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.EF;
@@ -12,8 +12,8 @@ public class TrocContext :DbContext
         _connectionStringProvider = connectionStringProvider;
     }
 
-    public DbSet<Users> Utilisateurs { get; set; }
-    public DbSet<Article> Articles { get; set; }
+    public DbSet<DbUser> Utilisateurs { get; set; }
+    public DbSet<DbArticle> Articles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -26,7 +26,7 @@ public class TrocContext :DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
-        modelBuilder.Entity<Users>(entity =>
+        modelBuilder.Entity<DbUser>(entity =>
         {
             entity.ToTable("Users");
             entity.HasKey(utilisateur => utilisateur.Id);
@@ -37,7 +37,7 @@ public class TrocContext :DbContext
             entity.Property(utilisateur => utilisateur.Mdp).HasColumnName("mdp");
         });
         
-        modelBuilder.Entity<Article>(entity =>
+        modelBuilder.Entity<DbArticle>(entity =>
         {
             entity.ToTable("Articles");
             entity.HasKey(article => article.Id);

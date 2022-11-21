@@ -1,9 +1,12 @@
-﻿using Domain;
+﻿
+using Infrastructure.EF.DbEntities;
 
-namespace Infrastructure.EF;
+namespace Infrastructure.EF.User;
 
 public interface IUsers
 {
-    IEnumerable<Users> GetAll();
-    Users Create(string email, string pseudo, string localite, string mdp);
+    IEnumerable<DbUser> GetAll();
+    DbUser Create(string email, string pseudo, string localite, string mdp);
+    DbUser FetchById(int id);
+ 
 }

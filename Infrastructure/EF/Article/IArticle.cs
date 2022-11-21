@@ -1,11 +1,11 @@
-﻿using Domain;
+﻿using Infrastructure.EF.DbEntities;
 
-namespace Infrastructure.EF;
+namespace Infrastructure.EF.Article;
 
 public interface IArticle
 {
-    IEnumerable<Article> GetAll();
+    IEnumerable<DbArticle> GetAll();
 
-    Article Create(int idUser,  string name, string urlImage, DateTime publicationDate, string nomCat);
+    DbArticle Create(int idUser,  string name, string urlImage, DateTime publicationDate, string nomCat);
 
 }

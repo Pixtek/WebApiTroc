@@ -1,5 +1,7 @@
 ﻿using Domain;
 using Infrastructure.EF;
+using Infrastructure.EF.Article;
+using Infrastructure.EF.DbEntities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiTroc.Controllers;
@@ -16,7 +18,7 @@ public class ArticleController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<Article> GetAll()
+    public IEnumerable<DbArticle> GetAll()
     {
         return _IArticle.GetAll();
     }

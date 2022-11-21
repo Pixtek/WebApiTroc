@@ -1,7 +1,11 @@
+
+using Application.UseCases.Users;
 using Domain;
 using Infrastructure.EF;
-using Microsoft.Identity.Client;
-using WebApiTroc.Controllers;
+using Infrastructure.EF.Article;
+using Infrastructure.EF.User;
+using WebApiTroc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +19,10 @@ builder.Services.AddScoped<IConnectionStringProvider, ConnectionStringProvider>(
 builder.Services.AddScoped<IArticle, ArticleRepository>();
 builder.Services.AddScoped<IUsers, UsersRepository>();
 builder.Services.AddScoped<TrocContextProvider>();
+
+//users
+builder.Services.AddScoped<UseCaseFetchById>();
+builder.Services.AddScoped<UseCaseCreateUser>();
 
 builder.Services.AddCors(options =>
 {
