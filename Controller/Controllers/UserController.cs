@@ -13,12 +13,14 @@ public class UserController :ControllerBase
 {
     private readonly IUsers _IUsers;
     private readonly UseCaseFetchById _useCaseFetchById;
+    private readonly UseCaseCreateUser _useCaseCreateUser;
     
 
-    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById)
+    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById, UseCaseCreateUser useCaseCreateUser)
     {
         _IUsers = iUsers;
         _useCaseFetchById = useCaseFetchById;
+        _useCaseCreateUser = useCaseCreateUser;
     }
 
     [HttpGet]
@@ -28,11 +30,17 @@ public class UserController :ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<DbUser> Create(string email, string pseudo, string localite, string mdp)
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public ActionResult<DtoOutputUser> Create(DtoInputCreateUser dto)
     {
         try
         {
-            return Ok(_IUsers.Create( email,  pseudo,  localite,  mdp));
+            var output = _useCaseCreateUser.Execute(dto);
+            return CreatedAtAction(
+                nameof(FetchById),
+                new { id = output.Id },
+                output
+            );
         }
         catch (KeyNotFoundException e)
         {

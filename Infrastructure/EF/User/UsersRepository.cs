@@ -27,13 +27,7 @@ public class UsersRepository : IUsers
             throw new KeyNotFoundException($"User with pseudo {pseudo} AND/OR email {email} exist");
         }
         
-        var user = new DbUser() 
-        {
-            Email = email,
-            Pseudo = pseudo,
-            Localite = localite,
-            Mdp = mdp
-        };
+        var user = new DbUser { Email = email, Pseudo = pseudo, Localite = localite,Mdp = mdp};
         
         context.Utilisateurs.Add(user);
         context.SaveChanges();

@@ -22,6 +22,7 @@ builder.Services.AddScoped<TrocContextProvider>();
 
 //users
 builder.Services.AddScoped<UseCaseFetchById>();
+builder.Services.AddScoped<UseCaseCreateUser>();
 
 builder.Services.AddCors(options =>
 {
