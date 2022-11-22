@@ -313,3 +313,6 @@ C:\Users\mathi\RiderProjects\WebApiTroc\Controller\obj\Debug\net6.0\ref\Controll
 C:\Users\mathi\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\Application.dll
 C:\Users\mathi\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\Application.pdb
 C:\Users\mathi\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\darka\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\darka\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\Application.dll
+C:\Users\darka\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\Application.pdb

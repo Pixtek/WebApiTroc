@@ -8,5 +8,7 @@ public interface IUsers
     IEnumerable<DbUser> GetAll();
     DbUser Create(string email, string pseudo, string localite, string mdp);
     DbUser FetchById(int id);
+    
+    DbUser FetchByPseudo(string pseudo);
  
 }

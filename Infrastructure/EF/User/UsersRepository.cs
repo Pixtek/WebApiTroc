@@ -3,6 +3,7 @@ using Infrastructure.EF.DbEntities;
 
 namespace Infrastructure.EF.User;
 
+
 public class UsersRepository : IUsers
 {
     private readonly TrocContextProvider _trocContextProvider;
@@ -40,6 +41,16 @@ public class UsersRepository : IUsers
         var user = context.Utilisateurs.FirstOrDefault(u => u.Id == id);
 
         if (user == null) throw new KeyNotFoundException($"User with id {id} has not been found");
+
+        return user;
+    }
+
+    public DbUser FetchByPseudo(string pseudo)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var user = context.Utilisateurs.FirstOrDefault(u => u.Pseudo == pseudo);
+
+        if (user == null) throw new KeyNotFoundException($"User with pseudo {pseudo} has not been found");
 
         return user;
     }

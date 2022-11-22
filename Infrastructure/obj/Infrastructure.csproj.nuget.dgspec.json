@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\darka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\darka\\RiderProjects\\WebApiTroc\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\darka\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

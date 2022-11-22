@@ -14,13 +14,14 @@ public class UserController :ControllerBase
     private readonly IUsers _IUsers;
     private readonly UseCaseFetchById _useCaseFetchById;
     private readonly UseCaseCreateUser _useCaseCreateUser;
-    
+    private readonly UseCaseFetchByPseudo _useCaseFetchByPseudo;
 
-    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById, UseCaseCreateUser useCaseCreateUser)
+    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById, UseCaseCreateUser useCaseCreateUser, UseCaseFetchByPseudo useCaseFetchByPseudo)
     {
         _IUsers = iUsers;
         _useCaseFetchById = useCaseFetchById;
         _useCaseCreateUser = useCaseCreateUser;
+        _useCaseFetchByPseudo = useCaseFetchByPseudo;
     }
 
     [HttpGet]
@@ -61,6 +62,25 @@ public class UserController :ControllerBase
         try
         {
             return _useCaseFetchById.Execute(id);
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(new
+            {
+                e.Message
+            });
+        }
+    }
+    
+    [HttpGet]
+    [Route("{pseudo}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<DtoOutputUser> FetchByPseudo(string pseudo)
+    {
+        try
+        {
+            return _useCaseFetchByPseudo.Execute(pseudo);
         }
         catch (KeyNotFoundException e)
         {

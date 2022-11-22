@@ -1,5 +1,6 @@
 
 using Application.UseCases.Users;
+using Application.UseCases.Users.Dto;
 using Domain;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<TrocContextProvider>();
 //users
 builder.Services.AddScoped<UseCaseFetchById>();
 builder.Services.AddScoped<UseCaseCreateUser>();
+builder.Services.AddScoped<UseCaseFetchByPseudo>();
 
 builder.Services.AddCors(options =>
 {
