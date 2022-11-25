@@ -14,6 +14,8 @@ public class TrocContext :DbContext
 
     public DbSet<DbUser> Utilisateurs { get; set; }
     public DbSet<DbArticle> Articles { get; set; }
+    
+    public DbSet<DbCommentary> Commentary { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -48,6 +50,20 @@ public class TrocContext :DbContext
             entity.Property(article => article.Name).HasColumnName("nom");
             entity.Property(article => article.URLImage).HasColumnName("urlImage");
             entity.Property(article => article.PublicationDate).HasColumnName("datePubli");
+
+        });
+        
+        modelBuilder.Entity<DbCommentary>(entity =>
+        {
+            entity.ToTable("Commentaire");
+            entity.HasKey(commentary => commentary.Id);
+            entity.Property(commentary => commentary.Id).HasColumnName("id_Commentaire");
+            // property ou haskey peut être à modifier!!!!
+            entity.Property(commentary => commentary.Note).HasColumnName("note");
+            entity.Property(commentary => commentary.Nom).HasColumnName("nom");
+            entity.Property(commentary => commentary.Message).HasColumnName("message_");
+            entity.Property(commentary => commentary.Id_User).HasColumnName("id_User");
+            
 
         });
 
