@@ -91,5 +91,14 @@ public class UserController :ControllerBase
         }
     }
     
+    [HttpDelete]
+    [Route("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult Delete(int id)
+    {
+        return _IUsers.Delete(id) ? NoContent() : NotFound();
+    }
+    
 
 }

@@ -8,4 +8,5 @@ public interface IArticle
     DbArticle Create(int idUser,  string name, string urlImage, DateTime publicationDate, string nomCat);
     DbArticle FetchByName(string name);
     bool Update(DbArticle dbArticle);
+    bool Delete(int id);
 }

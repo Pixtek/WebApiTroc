@@ -1,5 +1,6 @@
 ﻿
 using Infrastructure.EF.DbEntities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.EF.User;
 
@@ -53,5 +54,19 @@ public class UsersRepository : IUsers
         if (user == null) throw new KeyNotFoundException($"User with pseudo {pseudo} has not been found");
 
         return user;
+    }
+
+    public bool Delete(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        try
+        {
+            context.Remove(new DbUser() { Id = id });
+            return context.SaveChanges() == 1;
+        }
+        catch (DbUpdateConcurrencyException e)
+        {
+            return false;
+        }
     }
 }

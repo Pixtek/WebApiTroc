@@ -9,6 +9,6 @@ public interface IUsers
     DbUser Create(string email, string pseudo, string localite, string mdp);
     DbUser FetchById(int id);
     DbUser FetchByPseudo(string pseudo);
-    
- 
+    bool Delete(int id);
+
 }

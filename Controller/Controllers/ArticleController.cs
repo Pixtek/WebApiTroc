@@ -25,9 +25,9 @@ public class ArticleController : ControllerBase
 
     [HttpPost]
     public ActionResult<Article> Create(int idUser, string name, string urlImage,
-        DateTime publicationDate,string nomCat)
+        DateTime publicationDate, string nomCat)
     {
-        return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate,nomCat));
+        return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate, nomCat));
     }
 
     [HttpGet]
@@ -56,6 +56,15 @@ public class ArticleController : ControllerBase
     public ActionResult Update(DbArticle dbArticle)
     {
         return _IArticle.Update(dbArticle) ? NoContent() : NotFound();
+    }
+
+    [HttpDelete]
+    [Route("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult Delete(int id)
+    {
+        return _IArticle.Delete(id) ? NoContent() : NotFound();
     }
 
 

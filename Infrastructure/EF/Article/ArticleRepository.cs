@@ -57,4 +57,18 @@ public class ArticleRepository :IArticle
             return false;
         }
     }
+
+    public bool Delete(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        try
+        {
+            context.Remove(new DbArticle() { Id = id });
+            return context.SaveChanges() == 1;
+        }
+        catch (DbUpdateConcurrencyException e)
+        {
+            return false;
+        }
+    }
 }
