@@ -1,4 +1,6 @@
 ﻿
+using System.Data;
+using System.Text.RegularExpressions;
 using Infrastructure.EF.DbEntities;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,6 +30,50 @@ public class UsersRepository : IUsers
         {
             throw new KeyNotFoundException($"User with pseudo {pseudo} AND/OR email {email} exist");
         }
+        
+        Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$");
+
+        if (!validateEmailRegex.IsMatch(email))
+        {
+            throw new SyntaxErrorException($"L'Email {email} ne respecte pas le bon format");
+        }
+        
+        var hasNumber = new Regex(@"[0-9]+");
+        var hasUpperChar = new Regex(@"[A-Z]+");
+        var hasMiniMaxChars = new Regex(@".{8,15}");
+        var hasLowerChar = new Regex(@"[a-z]+");
+        var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+
+        if (!hasLowerChar.IsMatch(mdp))
+        {
+            throw new SyntaxErrorException($"Le mot de passe doit contenir au moins une minuscule");
+        }
+        else if (!hasUpperChar.IsMatch(mdp))
+        {
+            throw new SyntaxErrorException($"Le mot de passe doit contenir au moins une majuscule");
+        }
+        else if (!hasMiniMaxChars.IsMatch(mdp))
+        {
+            throw new SyntaxErrorException($"Le mot de passe doit contenir entre 8 et 15 caractères");
+        }
+        else if (!hasNumber.IsMatch(mdp))
+        {
+            throw new SyntaxErrorException($"Le mot de passe doit contenir au moins un chiffre");
+        }
+
+        else if (!hasSymbols.IsMatch(mdp))
+        {
+            throw new SyntaxErrorException($"Le mot de passe doit contenir au moins un caractère spéciale");
+        }
+
+        
+        var hasMiniChars = new Regex(@".{4,}");
+        
+        if (!hasMiniChars.IsMatch(pseudo))
+        {
+            throw new SyntaxErrorException($"Le pseudo doit contenir au moins 4 caractères");
+        }
+        
         
         var user = new DbUser { Email = email, Pseudo = pseudo, Localite = localite,Mdp = mdp};
         

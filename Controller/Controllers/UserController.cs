@@ -1,4 +1,5 @@
 ﻿
+using System.Data;
 using Application.UseCases.Users;
 using Application.UseCases.Users.Dto;
 using Infrastructure.EF.DbEntities;
@@ -43,9 +44,16 @@ public class UserController :ControllerBase
                 output
             );
         }
-        catch (KeyNotFoundException e)
+        catch (KeyNotFoundException e )
         {
             return NotFound(new
+            {
+                e.Message
+            });
+        }
+        catch (SyntaxErrorException e )
+        {
+            return Unauthorized(new
             {
                 e.Message
             });
