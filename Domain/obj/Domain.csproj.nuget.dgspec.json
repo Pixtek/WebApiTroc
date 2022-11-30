@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+    "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\De Gendt Damien\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Florian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\De Gendt Damien\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Florian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

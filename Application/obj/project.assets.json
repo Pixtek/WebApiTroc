@@ -3290,19 +3290,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\": {}
+    "C:\\Users\\Florian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\De Gendt Damien\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Florian\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\De Gendt Damien\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Florian\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3314,11 +3314,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj"
+            "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -3354,7 +3354,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -397,3 +397,6 @@ C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Controller\obj\Debug\net6.0\re
 C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Controller\obj\Debug\net6.0\Controller.pdb
 C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Controller\obj\Debug\net6.0\Controller.genruntimeconfig.cache
 C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Controller\obj\Debug\net6.0\ref\Controller.dll
+C:\Users\Florian\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Florian\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\Application.dll
+C:\Users\Florian\RiderProjects\WebApiTroc\Controller\bin\Debug\net6.0\Application.pdb

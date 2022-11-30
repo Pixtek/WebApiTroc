@@ -4,6 +4,7 @@ using Application.UseCases.Users.Dto;
 using Domain;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
+using Infrastructure.EF.Commentary;
 using Infrastructure.EF.User;
 using WebApiTroc;
 
@@ -25,6 +26,9 @@ builder.Services.AddScoped<TrocContextProvider>();
 builder.Services.AddScoped<UseCaseFetchById>();
 builder.Services.AddScoped<UseCaseCreateUser>();
 builder.Services.AddScoped<UseCaseFetchByPseudo>();
+
+//Commentary
+builder.Services.AddScoped<ICommentary, CommentaryRepository>();
 
 builder.Services.AddCors(options =>
 {
