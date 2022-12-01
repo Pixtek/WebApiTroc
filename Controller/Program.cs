@@ -5,6 +5,7 @@ using Domain;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
 using Infrastructure.EF.Commentary;
+using Infrastructure.EF.Transaction;
 using Infrastructure.EF.User;
 using WebApiTroc;
 
@@ -29,6 +30,9 @@ builder.Services.AddScoped<UseCaseFetchByPseudo>();
 
 //Commentary
 builder.Services.AddScoped<ICommentary, CommentaryRepository>();
+
+//Transactions
+builder.Services.AddScoped<ITransaction, TransactionRepository>();
 
 builder.Services.AddCors(options =>
 {

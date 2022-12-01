@@ -3,9 +3,9 @@
 public class Commentary
 {
     public int Id { get; set; }
-    public short note { get; set; }
-    public string nom { get; set; }
-    public string message { get; set; }
-    public int id_User { get; set; }
+    public short Note { get; set; }
+    public string Nom { get; set; }
+    public string Message { get; set; }
+    public int Id_User { get; set; }
     
 }

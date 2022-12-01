@@ -16,6 +16,7 @@ public class TrocContext :DbContext
     public DbSet<DbArticle> Articles { get; set; }
     
     public DbSet<DbCommentary> Commentary { get; set; }
+    public DbSet<DbTransaction> Transactions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -63,11 +64,21 @@ public class TrocContext :DbContext
             entity.Property(commentary => commentary.Nom).HasColumnName("nom");
             entity.Property(commentary => commentary.Message).HasColumnName("message_");
             entity.Property(commentary => commentary.Id_User).HasColumnName("id_User");
-            
-
         });
 
 
-
+        modelBuilder.Entity<DbTransaction>(entity =>
+        {
+            entity.ToTable("Transactions");
+            entity.HasKey(transaction => transaction.Id);
+            entity.Property(transaction => transaction.Id).HasColumnName("id_transaction");
+            entity.Property(transaction => transaction.Dates).HasColumnName("dates");
+            entity.Property(transaction => transaction.Id_User1).HasColumnName("id_user1");
+            entity.Property(transaction => transaction.Id_User2).HasColumnName("id_user2");
+            entity.Property(transaction => transaction.Article1).HasColumnName("articles1");
+            entity.Property(transaction => transaction.Article2).HasColumnName("articles2");
+            
+        });
+        
     }
 }
