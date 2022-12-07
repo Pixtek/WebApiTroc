@@ -46,6 +46,25 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.10.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1046,6 +1065,19 @@
             "rid": "win"
           }
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.11"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -1086,6 +1118,21 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.11": {
+      "sha512": "ivpWC8L84Y+l9VZOa0uJXPoUE+n3TiSRZpfKxMElRtLMYCeXmz5x3O7CuCJkZ65z1520RWuEZDmHefxiz5TqPg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -3215,27 +3262,34 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Domain >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Florian\\.nuget\\packages\\": {}
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Florian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\De Gendt Damien\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Florian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\De Gendt Damien\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3246,7 +3300,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3259,6 +3317,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[6.0.11, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.0, )"
@@ -3280,7 +3342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

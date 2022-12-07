@@ -31,7 +31,7 @@ public class UsersRepository : IUsers
             throw new KeyNotFoundException($"User with pseudo {pseudo} AND/OR email {email} exist");
         }
         
-        Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$");
+        Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$"); 
 
         if (!validateEmailRegex.IsMatch(email))
         {

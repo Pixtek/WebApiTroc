@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "oeymM15JArZZ6XYX6+uya1btq0PsToOtPvb2zuFrghfrpQpUbuB/gYdb1yK9JGcpnl1ro41KfDVUvFhTkJnuTA==",
+  "dgSpecHash": "ohI3LM5BZdXOeZnlrmMLJmD/UwO6CoEHVslsivlvR/kO02ze7cvhI2WZudjuARbQgTKSxvvtTDwvfEeUOMgDZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.11\\microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.0\\microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.identitymodel.logging\\6.10.0\\microsoft.identitymodel.logging.6.10.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
+    "C:\\Users\\De Gendt Damien\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
