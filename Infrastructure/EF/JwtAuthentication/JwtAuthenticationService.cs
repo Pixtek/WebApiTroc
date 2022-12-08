@@ -2,38 +2,30 @@
 using System.Security.Claims;
 using System.Text;
 using Domain;
+using Infrastructure.EF.DbEntities;
+using Infrastructure.EF.User;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.EF.JwtAuthentication;
 
 public class JwtAuthenticationService : IJwtAuthenticationService
 {
+    private readonly IUsers _users;
     //SIMULATION BASE DE DONNEES VITE FAIT POUR TESTER
-    private readonly List<Users> _users = new List<Users>()
+    private readonly IEnumerable<DbUser> utilisateurs = new List<DbUser>();
+    
+    public JwtAuthenticationService(IUsers users)
     {
-        new Users
-        {
-            Id = 1,
-            Email = "admin1@test.com",
-            Pseudo = "admin1",
-            Localite = "Mons",
-            Mdp = "admin1Pwd"
-        },
-        new Users
-        {
-            Id = 2,
-            Email = "user1@test.com",
-            Pseudo = "user1",
-            Localite = "Bassilly",
-            Mdp = "user1Pwd"
-        }
-    };
+        _users = users;
+        utilisateurs = _users.GetAll();
+    }
 
 
-    public Users Authenticate(string email, string password)
+    public DbUser Authenticate(string email, string password)
     {
         //ACCEDER LA BASE DE DONNEES ICI
-        return _users.Where(u => u.Email.ToUpper().Equals(email.ToUpper()) && u.Mdp.Equals(password)).FirstOrDefault();
+        
+        return utilisateurs.Where(u => u.Email.ToUpper().Equals(email.ToUpper()) && u.Mdp.Equals(password)).FirstOrDefault();
     }
 
     public string GenerateToken(string secret, List<Claim> claims)
