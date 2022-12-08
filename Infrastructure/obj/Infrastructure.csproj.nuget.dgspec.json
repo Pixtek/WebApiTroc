@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+    "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\De Gendt Damien\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Florian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\De Gendt Damien\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Florian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -41,6 +41,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.11, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
             }
           },
           "imports": [
@@ -59,21 +63,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\De Gendt Damien\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Florian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\De Gendt Damien\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Florian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -85,8 +89,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj"
+              "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Florian\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj"
               }
             }
           }
@@ -108,6 +112,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
             }
           },
           "imports": [
@@ -126,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -42,6 +42,25 @@ public class ArticleRepository :IArticle
         return article;
     }
 
+    public DbArticle FetchById(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var article = context.Articles.FirstOrDefault(a => a.Id == id);
+
+        if (article == null) throw new KeyNotFoundException($"Article with name {id} has not been found");
+        return article;
+    }  
+    
+    public IEnumerable<DbArticle> FetchById_Users(int id_user)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var article = context.Articles.FirstOrDefault(a => a.IdUser == id_user);
+        var activeCustomers = context.Articles.Where(a => a.IdUser == id_user).ToList();
+
+        if (article == null) throw new KeyNotFoundException($"Article with name {id_user} has not been found");
+        return activeCustomers;
+    }
+
     public bool Update(DbArticle dbArticle)
     {
         using var context = _trocContextProvider.NewContext();

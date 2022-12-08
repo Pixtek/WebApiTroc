@@ -49,6 +49,37 @@ public class ArticleController : ControllerBase
             });
         }
     }
+    
+    [HttpGet]
+    [Route("Id/{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<DbArticle> FetchById(int id)
+    {
+        try
+        {
+            return _IArticle.FetchById(id);
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(new
+            {
+                e.Message
+            });
+        }
+    }
+    [HttpGet]
+    [Route("Id_Users/{id_users:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+    public IEnumerable<DbArticle> FetchById_Users(int id_users)
+    {
+
+        return _IArticle.FetchById_Users(id_users);
+
+    }
 
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status200OK)]
