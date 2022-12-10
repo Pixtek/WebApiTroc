@@ -33,13 +33,15 @@ public class ArticleRepository :IArticle
         context.SaveChanges();
         return article;
     }
-    public DbArticle FetchByName(string name)
+    public IEnumerable<DbArticle> FetchByName(string name)
     {
+        
         using var context = _trocContextProvider.NewContext();
-        var article = context.Articles.FirstOrDefault(a => a.Name == name);
+        var article = context.Articles.FirstOrDefault(a => a.Name.Contains(name));
+        var activeCustomers = context.Articles.Where(a => a.Name.Contains(name)).ToList();
 
         if (article == null) throw new KeyNotFoundException($"Article with name {name} has not been found");
-        return article;
+        return activeCustomers;
     }
 
     public DbArticle FetchByCategory(string category)
