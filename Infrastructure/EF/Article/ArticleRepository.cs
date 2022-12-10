@@ -42,6 +42,15 @@ public class ArticleRepository :IArticle
         return article;
     }
 
+    public DbArticle FetchByCategory(string category)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var article = context.Articles.FirstOrDefault(a => a.CategoryName == category);
+
+        if (article == null) throw new KeyNotFoundException($"Article with category name {category} has not been found");
+        return article;
+    }
+
     public DbArticle FetchById(int id)
     {
         using var context = _trocContextProvider.NewContext();

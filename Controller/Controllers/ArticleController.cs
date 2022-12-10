@@ -34,12 +34,31 @@ public class ArticleController : ControllerBase
     [Route("{name}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-
     public ActionResult<DbArticle> FetchByName(string name)
     {
         try
         {
             return _IArticle.FetchByName(name);
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(new
+            {
+                e.Message
+            });
+        }
+    }
+    
+    [HttpGet]
+    [Route("{categoryName}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+    public ActionResult<DbArticle> FetchByCategory(string name)
+    {
+        try
+        {
+            return _IArticle.FetchByCategory(name);
         }
         catch (KeyNotFoundException e)
         {
