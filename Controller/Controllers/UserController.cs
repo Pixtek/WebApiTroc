@@ -1,12 +1,16 @@
 ﻿
 using System.Data;
 using System.Diagnostics;
+using System.Net;
 using System.Security.Claims;
 using Application.UseCases.Users;
 using Application.UseCases.Users.Dto;
+using Domain;
 using Infrastructure.EF.DbEntities;
+using Infrastructure.EF.JwtAuthentication;
 using Infrastructure.EF.User;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework.Internal;
 
@@ -16,17 +20,23 @@ namespace WebApiTroc.Controllers;
 [Route("api/v1/Users")]
 public class UserController :ControllerBase
 {
+
     private readonly IUsers _IUsers;
     private readonly UseCaseFetchById _useCaseFetchById;
     private readonly UseCaseCreateUser _useCaseCreateUser;
     private readonly UseCaseFetchByPseudo _useCaseFetchByPseudo;
+    private readonly IJwtAuthenticationService _jwtAuthenticationService;
+    private readonly IConfiguration _config;
 
-    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById, UseCaseCreateUser useCaseCreateUser, UseCaseFetchByPseudo useCaseFetchByPseudo)
+
+    public UserController(IUsers iUsers, UseCaseFetchById useCaseFetchById, UseCaseCreateUser useCaseCreateUser, UseCaseFetchByPseudo useCaseFetchByPseudo, IJwtAuthenticationService jwtAuthenticationService, IConfiguration config)
     {
         _IUsers = iUsers;
         _useCaseFetchById = useCaseFetchById;
         _useCaseCreateUser = useCaseCreateUser;
         _useCaseFetchByPseudo = useCaseFetchByPseudo;
+        _jwtAuthenticationService = jwtAuthenticationService;
+        _config = config;
     }
 
     [HttpGet]
@@ -83,6 +93,34 @@ public class UserController :ControllerBase
             });
         }
     }
+    [HttpPost]
+    [Route("login")]
+    public IActionResult Login([FromBody] LoginModel model)
+    {
+        var user = _jwtAuthenticationService.Authenticate(model.Email, model.Mdp);
+        
+        if (user != null)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim("id", user.Id.ToString()),
+                new Claim("email",user.Email),
+                new Claim("pseudo", user.Pseudo),
+                new Claim("localite", user.Localite)
+            };
+            var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
+            
+            Response.Cookies.Append("cookie", token, new CookieOptions()
+            {
+                HttpOnly = true,
+                Secure = true
+            });
+
+            return Ok(token);
+        }
+
+        return Unauthorized();
+    }
     
     [HttpGet]
     [Route("fetchById")]
@@ -95,14 +133,14 @@ public class UserController :ControllerBase
             var test = User.Claims;
             var id = User.Claims.First(claim => claim.Type == "id").Value;
             
-            var idUser = Convert.ToInt32(id);
+            //var idUser = Convert.ToInt32(id);
             
-            return  _useCaseFetchById.Execute(idUser);
+            return  _useCaseFetchById.Execute(Convert.ToInt32(id));
         }
         catch (Exception e)
         {
-            var id = User.Claims.ToArray().ToString();
-            return NotFound(new string(id));
+            
+            return NotFound("dfdd");
         }
     }
 

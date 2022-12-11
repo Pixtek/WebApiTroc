@@ -31,12 +31,11 @@ public class JwtAuthenticationService : IJwtAuthenticationService
 
     public string GenerateToken(string secret, List<Claim> claims)
     {
-        
-        
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
         
         var tokenDescriptor = new SecurityTokenDescriptor
         {
+            Issuer = "https://localhost:7018/",
             Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddMinutes(60),
             SigningCredentials = new SigningCredentials(

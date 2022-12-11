@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using Domain;
 using Infrastructure.EF.JwtAuthentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Any;
 
@@ -12,7 +13,8 @@ public class AuthenticationController : ControllerBase
 {
     private readonly IJwtAuthenticationService _jwtAuthenticationService;
     private readonly IConfiguration _config;
-   
+
+
     public AuthenticationController(IJwtAuthenticationService jwtAuthenticationService, IConfiguration config)
     {
         _jwtAuthenticationService = jwtAuthenticationService;
@@ -37,13 +39,7 @@ public class AuthenticationController : ControllerBase
             };
             var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
             
-            Response.Cookies.Append("cookietrue", token, new CookieOptions()
-            {
-                HttpOnly = false,
-                Secure = false
-            });
-            
-            Response.Cookies.Append("cookieFalse", token, new CookieOptions()
+            Response.Cookies.Append("cookie", token, new CookieOptions()
             {
                 HttpOnly = false,
                 Secure = false

@@ -48,15 +48,15 @@ public class Startup
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
-                /*
+                
                 options.Events = new JwtBearerEvents
                 {
                     OnMessageReceived = context =>
                     {
-                        context.Token = context.Request.Cookies["your-cookie"];
+                        context.Token = context.Request.Cookies["cookie"];
                         return Task.CompletedTask;
                     }
-                };*/
+                };
             });
 
             services.AddTransient<IJwtAuthenticationService, JwtAuthenticationService>();
