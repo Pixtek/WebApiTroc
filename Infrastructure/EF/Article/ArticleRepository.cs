@@ -44,13 +44,14 @@ public class ArticleRepository :IArticle
         return activeCustomers;
     }
 
-    public DbArticle FetchByCategory(string category)
+    public IEnumerable<DbArticle> FetchByCategory(string category)
     {
         using var context = _trocContextProvider.NewContext();
         var article = context.Articles.FirstOrDefault(a => a.CategoryName == category);
+        var activeCustomers = context.Articles.Where(a => a.CategoryName.Contains(category)).ToList();
 
         if (article == null) throw new KeyNotFoundException($"Article with category name {category} has not been found");
-        return article;
+        return activeCustomers;
     }
 
     public DbArticle FetchById(int id)

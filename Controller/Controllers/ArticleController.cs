@@ -44,19 +44,9 @@ public class ArticleController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-    public ActionResult<DbArticle> FetchByCategory(string categoryName)
+    public IEnumerable<DbArticle> FetchByCategory(string categoryName)
     {
-        try
-        {
-            return _IArticle.FetchByCategory(categoryName);
-        }
-        catch (KeyNotFoundException e)
-        {
-            return NotFound(new
-            {
-                e.Message
-            });
-        }
+        return _IArticle.FetchByCategory(categoryName);
     }
     
     [HttpGet]

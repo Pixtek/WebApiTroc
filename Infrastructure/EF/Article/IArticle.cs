@@ -7,7 +7,7 @@ public interface IArticle
     IEnumerable<DbArticle> GetAll();
     DbArticle Create(int idUser,  string name, string urlImage, DateTime publicationDate, string nomCat);
     IEnumerable<DbArticle> FetchByName(string name);
-    DbArticle FetchByCategory(string name);
+    IEnumerable<DbArticle> FetchByCategory(string name);
     DbArticle FetchById(int id);
     IEnumerable<DbArticle> FetchById_Users(int id_user);
     bool Update(DbArticle dbArticle);
