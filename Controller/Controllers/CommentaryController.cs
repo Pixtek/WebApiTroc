@@ -66,5 +66,18 @@ public class CommentaryController : ControllerBase
         return _ICommentary.Delete(id) ? NoContent() : NotFound();
     }
     
+    [HttpGet]
+    [Route("Id_Users/{idUser:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+    public IEnumerable<DbCommentary> FetchByIdUser(int idUser)
+    {
+
+        return _ICommentary.FetchByIdUser(idUser);
+
+    }
+    
     
 }

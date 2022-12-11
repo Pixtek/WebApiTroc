@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {}
+    "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
+    "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\De Gendt Damien\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\De Gendt Damien\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathi\\RiderProjects\\WebApiTroc\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\De Gendt Damien\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

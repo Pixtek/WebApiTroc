@@ -3,6 +3,7 @@ using Application.UseCases.Users;
 using Application.UseCases.Users.Dto;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
+using Infrastructure.EF.Category;
 using Infrastructure.EF.Commentary;
 using Infrastructure.EF.JwtAuthentication;
 using Infrastructure.EF.Transaction;
@@ -54,17 +55,20 @@ public class Startup
             services.AddScoped<IUsers, UsersRepository>();
             services.AddScoped<TrocContextProvider>();
 
-//users
+            //users
             services.AddScoped<UseCaseFetchById>();
             services.AddScoped<UseCaseCreateUser>();
             services.AddScoped<UseCaseFetchByPseudo>();
 
-//Commentary
+            //Commentary
             services.AddScoped<ICommentary, CommentaryRepository>();
 
-//Transactions
+            //Transactions
             services.AddScoped<ITransaction, TransactionRepository>();
             
+            //category
+            services.AddScoped<ICategory, CategoryRepository>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("Dev", policyBuilder =>

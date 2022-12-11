@@ -45,6 +45,16 @@ public class CommentaryRepository : ICommentary
         return commentary;
     }
 
+    public IEnumerable<DbCommentary> FetchByIdUser(int idUser)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var commentary = context.Commentary.FirstOrDefault(c => c.Id_User == idUser);
+        var activeCustomers = context.Commentary.Where(a => a.Id_User == idUser).ToList();
+
+        if (commentary == null) throw new KeyNotFoundException($"Commentary with name {idUser} has not been found");
+        return activeCustomers;
+    }
+
     public bool Update(DbCommentary dbCommentary)
     {
         using var context = _trocContextProvider.NewContext();

@@ -14,9 +14,10 @@ public class TrocContext :DbContext
 
     public DbSet<DbUser> Utilisateurs { get; set; }
     public DbSet<DbArticle> Articles { get; set; }
-    
     public DbSet<DbCommentary> Commentary { get; set; }
     public DbSet<DbTransaction> Transactions { get; set; }
+    
+    public DbSet<DbCategory> categories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -78,6 +79,12 @@ public class TrocContext :DbContext
             entity.Property(transaction => transaction.Article1).HasColumnName("articles1");
             entity.Property(transaction => transaction.Article2).HasColumnName("articles2");
             
+        });
+        modelBuilder.Entity<DbCategory>(entity =>
+        {
+            entity.ToTable("Categorie");
+            entity.HasKey(category => category.NomCategory);
+            entity.Property(category => category.NomCategory).HasColumnName("nomCategorie");
         });
         
     }
