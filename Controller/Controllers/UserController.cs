@@ -1,10 +1,14 @@
 ﻿
 using System.Data;
+using System.Diagnostics;
+using System.Security.Claims;
 using Application.UseCases.Users;
 using Application.UseCases.Users.Dto;
 using Infrastructure.EF.DbEntities;
 using Infrastructure.EF.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NUnit.Framework.Internal;
 
 namespace WebApiTroc.Controllers;
 
@@ -79,6 +83,29 @@ public class UserController :ControllerBase
             });
         }
     }
+    
+    [HttpGet]
+    [Route("fetchById")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<DtoOutputUser> FetchById()
+    {
+        try
+        {
+            var test = User.Claims;
+            var id = User.Claims.First(claim => claim.Type == "id").Value;
+            
+            var idUser = Convert.ToInt32(id);
+            
+            return  _useCaseFetchById.Execute(idUser);
+        }
+        catch (Exception e)
+        {
+            var id = User.Claims.ToArray().ToString();
+            return NotFound(new string(id));
+        }
+    }
+
     
     [HttpGet]
     [Route("{pseudo}")]

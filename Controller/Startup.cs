@@ -33,7 +33,7 @@ public class Startup
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "JwtApi", Version = "v1" });
             });
-
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -48,7 +48,17 @@ public class Startup
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
+                /*
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        context.Token = context.Request.Cookies["your-cookie"];
+                        return Task.CompletedTask;
+                    }
+                };*/
             });
+
             services.AddTransient<IJwtAuthenticationService, JwtAuthenticationService>();
             services.AddScoped<IConnectionStringProvider, ConnectionStringProvider>();
             services.AddScoped<IArticle, ArticleRepository>();

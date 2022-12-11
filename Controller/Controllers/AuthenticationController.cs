@@ -2,6 +2,7 @@
 using Domain;
 using Infrastructure.EF.JwtAuthentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Any;
 
 namespace WebApiTroc.Controllers;
 
@@ -24,14 +25,30 @@ public class AuthenticationController : ControllerBase
     {
         var user = _jwtAuthenticationService.Authenticate(model.Email, model.Mdp);
 
+
         if (user != null)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, user.Email)
-            
+                new Claim("id", user.Id.ToString()),
+                new Claim("email",user.Email),
+                new Claim("pseudo", user.Pseudo),
+                new Claim("localite", user.Localite)
             };
             var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
+            
+            Response.Cookies.Append("cookietrue", token, new CookieOptions()
+            {
+                HttpOnly = false,
+                Secure = false
+            });
+            
+            Response.Cookies.Append("cookieFalse", token, new CookieOptions()
+            {
+                HttpOnly = false,
+                Secure = false
+            });
+
             return Ok(token);
         }
 
