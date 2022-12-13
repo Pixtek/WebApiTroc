@@ -45,7 +45,7 @@ public class AuthenticationController : ControllerBase
                 Secure = false
             });
 
-            return Ok(token);
+            return Ok();
         }
 
         return Unauthorized();

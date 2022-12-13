@@ -85,7 +85,10 @@ public class Startup
                 {
                     policyBuilder.WithOrigins("http://localhost:4200")
                         .AllowAnyMethod()
-                        .AllowAnyHeader();
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .SetIsOriginAllowed(origin => true)
+                        ;
                 });
             });
     }
@@ -100,10 +103,10 @@ public class Startup
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JwtApi v1"));
             }
-
-            app.UseHttpsRedirection();
+            
             
             app.UseCors("Dev");
+            app.UseHttpsRedirection();
 
             app.UseRouting();
             
