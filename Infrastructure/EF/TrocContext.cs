@@ -52,6 +52,7 @@ public class TrocContext :DbContext
             entity.Property(article => article.Name).HasColumnName("nom");
             entity.Property(article => article.URLImage).HasColumnName("urlImage");
             entity.Property(article => article.PublicationDate).HasColumnName("datePubli");
+            entity.Property(article => article.description).HasColumnName("descriptions");
 
         });
         

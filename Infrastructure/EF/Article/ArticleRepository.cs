@@ -18,7 +18,7 @@ public class ArticleRepository :IArticle
         return context.Articles.ToList();
     }
 
-    public DbArticle Create(int idUser,  string name, string urlImage, DateTime publicationDate,string nomCat)
+    public DbArticle Create(int idUser,  string name, string urlImage, DateTime publicationDate,string nomCat, string description)
     {
         using var context = _trocContextProvider.NewContext();
         var article = new DbArticle()
@@ -27,7 +27,8 @@ public class ArticleRepository :IArticle
             CategoryName = nomCat,
             Name = name,
             URLImage = urlImage,
-            PublicationDate = publicationDate
+            PublicationDate = publicationDate,
+            description = description
         };
         context.Articles.Add(article);
         context.SaveChanges();

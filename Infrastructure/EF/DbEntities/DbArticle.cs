@@ -8,5 +8,7 @@ public class DbArticle
     public DateTime PublicationDate { get; set; }
     public string CategoryName { get; set; }
     
+    public string description { get; set; }
+    
     public int IdUser { get; set; }
 }

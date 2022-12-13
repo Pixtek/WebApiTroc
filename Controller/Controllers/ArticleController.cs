@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using System.Security.Cryptography;
+using Domain;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
 using Infrastructure.EF.DbEntities;
@@ -25,9 +26,9 @@ public class ArticleController : ControllerBase
 
     [HttpPost]
     public ActionResult<Article> Create(int idUser, string name, string urlImage,
-        DateTime publicationDate, string nomCat)
+        DateTime publicationDate, string nomCat, string description)
     {
-        return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate, nomCat));
+        return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate, nomCat, description));
     }
 
     [HttpGet]
