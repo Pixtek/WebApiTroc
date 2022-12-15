@@ -109,18 +109,16 @@ public class UserController :ControllerBase
                 new Claim("localite", user.Localite)
             };
             var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
-            
             Response.Cookies.Append("cookie", token, new CookieOptions()
             {
                 HttpOnly = true,
                 Secure = true
             });
-
             return Ok(token);
         }
-
         return Unauthorized();
     }
+    
     
     [HttpGet]
     [Route("fetchById")]
@@ -171,6 +169,14 @@ public class UserController :ControllerBase
     public ActionResult Delete(int id)
     {
         return _IUsers.Delete(id) ? NoContent() : NotFound();
+    }
+    
+    [HttpPut]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult UpdateUser(String email, String pseudo, String localite, int id)
+    {
+        return _IUsers.Update(email, pseudo,localite,id) ? NoContent() : NotFound();
     }
     
 

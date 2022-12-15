@@ -30,6 +30,17 @@ public class ArticleController : ControllerBase
     {
         return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate, nomCat, description));
     }
+    
+    [HttpPost]
+    [Route("Create")]
+    public ActionResult<Article> Create(string name, string urlImage,
+         string nomCat, string description)
+    {
+        var id = User.Claims.First(claim => claim.Type == "id").Value;
+        var idUser = Convert.ToInt32(id);
+
+        return Ok(_IArticle.Create(idUser, name, urlImage, DateTime.Now, nomCat, description));
+    }
 
     [HttpGet]
     [Route("search")]
@@ -68,6 +79,23 @@ public class ArticleController : ControllerBase
             });
         }
     }
+    
+    [HttpGet]
+    [Route("Id_Users/")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+    public IEnumerable<DbArticle> FetchById_Users()
+    {
+        var id = User.Claims.First(claim => claim.Type == "id").Value;
+        var idUser = Convert.ToInt32(id);
+        return _IArticle.FetchById_Users(idUser);
+
+    }
+    
+    
+    
     [HttpGet]
     [Route("Id_Users/{id_users:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -88,6 +116,8 @@ public class ArticleController : ControllerBase
     {
         return _IArticle.Update(dbArticle) ? NoContent() : NotFound();
     }
+    
+
 
     [HttpDelete]
     [Route("{id:int}")]

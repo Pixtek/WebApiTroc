@@ -115,4 +115,24 @@ public class UsersRepository : IUsers
             return false;
         }
     }
+    
+    public bool Update(String email, String pseudo, String localite, int id)
+    { 
+        using var context = _trocContextProvider.NewContext();
+        try
+        {
+            var user = context.Utilisateurs.First(a => a.Id == id);
+            user.Email = email;
+            user.Localite = localite;
+            user.Pseudo = pseudo;
+            
+            return context.SaveChanges() == 1;
+        }
+        catch (DbUpdateConcurrencyException e)
+        {
+            return false;
+        }
+    }
+    
+    
 }
