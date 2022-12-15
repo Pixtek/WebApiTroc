@@ -11,4 +11,7 @@ public interface IUsers
     DbUser FetchByPseudo(string pseudo);
     bool Delete(int id);
 
+    public bool Update(String email, String pseudo, String localite, int id);
+
+
 }

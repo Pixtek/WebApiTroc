@@ -38,7 +38,7 @@ public class ArticleController : ControllerBase
     {
         var id = User.Claims.First(claim => claim.Type == "id").Value;
         var idUser = Convert.ToInt32(id);
-         DateTime.Now.ToString("MM/dd/yyyy");
+
         return Ok(_IArticle.Create(idUser, name, urlImage, DateTime.Now, nomCat, description));
     }
 
@@ -116,6 +116,8 @@ public class ArticleController : ControllerBase
     {
         return _IArticle.Update(dbArticle) ? NoContent() : NotFound();
     }
+    
+
 
     [HttpDelete]
     [Route("{id:int}")]

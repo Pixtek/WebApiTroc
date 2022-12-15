@@ -40,7 +40,7 @@ public class TrocContext :DbContext
             entity.Property(utilisateur => utilisateur.Localite).HasColumnName("localite");
             entity.Property(utilisateur => utilisateur.Mdp).HasColumnName("mdp");
         });
-        
+
         modelBuilder.Entity<DbArticle>(entity =>
         {
             entity.ToTable("Articles");
@@ -64,7 +64,7 @@ public class TrocContext :DbContext
             // property ou haskey peut être à modifier!!!!
             entity.Property(commentary => commentary.Note).HasColumnName("note");
             entity.Property(commentary => commentary.Nom).HasColumnName("nom");
-            entity.Property(commentary => commentary.Message).HasColumnName("message_");
+            entity.Property(commentary => commentary.Message).HasColumnName("messages");
             entity.Property(commentary => commentary.Id_User).HasColumnName("id_User");
         });
 
