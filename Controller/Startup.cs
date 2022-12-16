@@ -106,7 +106,10 @@ public class Startup
             
             
             app.UseCors("Dev");
-            app.UseHttpsRedirection();
+            if (env.IsProduction())
+            {
+                app.UseHttpsRedirection();
+            }
 
             app.UseRouting();
             
