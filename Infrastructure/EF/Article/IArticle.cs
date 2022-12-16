@@ -10,6 +10,6 @@ public interface IArticle
     IEnumerable<DbArticle> FetchByCategory(string name);
     DbArticle FetchById(int id);
     IEnumerable<DbArticle> FetchById_Users(int id_user);
-    bool Update(DbArticle dbArticle);
+    bool Update(string name, string description, string url,int id);
     bool Delete(int id);
 }

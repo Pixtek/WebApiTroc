@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.EF.Article;
 
-public class ArticleRepository :IArticle
+public class  ArticleRepository :IArticle
 {
     private readonly TrocContextProvider _trocContextProvider;
 
@@ -74,13 +74,16 @@ public class ArticleRepository :IArticle
         return activeCustomers;
     }
 
-    public bool Update(DbArticle dbArticle)
+    public bool Update(string name,string description,string url,int id)
     {
         using var context = _trocContextProvider.NewContext();
 
         try
         {
-            context.Update(dbArticle);
+            var article = context.Articles.First(a => a.Id == id);
+            article.Name=name;
+            article.description = description;
+            article.URLImage= url;
             return context.SaveChanges() == 1;
 
         }

@@ -112,9 +112,9 @@ public class ArticleController : ControllerBase
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult Update(DbArticle dbArticle)
+    public ActionResult Update(string name,string description,string url,int id)
     {
-        return _IArticle.Update(dbArticle) ? NoContent() : NotFound();
+        return _IArticle.Update(name, description, url, id) ? NoContent() : NotFound();
     }
     
 
