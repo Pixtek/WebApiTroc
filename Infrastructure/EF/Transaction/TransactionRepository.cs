@@ -76,6 +76,16 @@ public class TransactionRepository:ITransaction
         return activeCustomers;
     }
 
+    public IEnumerable<DbTransaction> fetchByIdUserOffer(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var article = context.Transactions.FirstOrDefault(a => a.Id_User1 == id);
+        var activeCustomers = context.Transactions.Where(a => a.Id_User1 == id).ToList();
+
+        if (article == null) throw new KeyNotFoundException($"Transaction with idUser1 {id} has not been found");
+        return activeCustomers;
+    }
+
     public DbTransaction fetchById(int id)
     {
         using var context = _trocContextProvider.NewContext();

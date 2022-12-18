@@ -131,8 +131,6 @@ public class UserController :ControllerBase
             var test = User.Claims;
             var id = User.Claims.First(claim => claim.Type == "id").Value;
             
-            //var idUser = Convert.ToInt32(id);
-            
             return  _useCaseFetchById.Execute(Convert.ToInt32(id));
         }
         catch (Exception e)
@@ -178,6 +176,17 @@ public class UserController :ControllerBase
     {
         return _IUsers.Update(email, pseudo,localite,id) ? NoContent() : NotFound();
     }
+    
+    [HttpPost]
+    [Route("disconnect")]
+    [ProducesResponseType((StatusCodes.Status200OK))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult Disconnect()
+    {
+        Response.Cookies.Delete("cookie");
+        return Ok();
+    }
+
     
 
 }

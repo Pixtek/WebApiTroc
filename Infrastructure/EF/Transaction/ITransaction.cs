@@ -10,5 +10,6 @@ public interface ITransaction
 
     bool Delete(int id);
     IEnumerable<DbTransaction> fetchByIdUser(int id);
+    IEnumerable<DbTransaction> fetchByIdUserOffer(int id);
     DbTransaction fetchById(int id);
 }

@@ -67,6 +67,21 @@ public class TransactionController : ControllerBase
     }
     
     [HttpGet]
+    [Route("fetchByIdUserOffer")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+    public IEnumerable<DbTransaction> FetchByIdUsersOffer()
+    {
+        var id = User.Claims.First(claim => claim.Type == "id").Value;
+        
+        var idUser = Convert.ToInt32(id);
+        return _ITransaction.fetchByIdUserOffer(idUser);
+
+    }
+    
+    [HttpGet]
     [Route("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
