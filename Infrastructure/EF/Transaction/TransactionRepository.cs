@@ -63,4 +63,25 @@ public class TransactionRepository:ITransaction
             return false;
         }
     }
+
+    //j'utilise le idUser2 car il s'agit de celui qui recoit la demande d'echange
+    //cette methode permet d'afficher les demandes de requetes sur mon profil
+    public IEnumerable<DbTransaction> fetchByIdUser(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var article = context.Transactions.FirstOrDefault(a => a.Id_User2 == id);
+        var activeCustomers = context.Transactions.Where(a => a.Id_User2 == id).ToList();
+
+        if (article == null) throw new KeyNotFoundException($"Transaction with idUser2 {id} has not been found");
+        return activeCustomers;
+    }
+
+    public DbTransaction fetchById(int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        var transaction = context.Transactions.FirstOrDefault(t => t.Id == id);
+
+        if (transaction == null) throw new KeyNotFoundException($"transaction with id {id} has not been found");
+        return transaction;
+    }
 }

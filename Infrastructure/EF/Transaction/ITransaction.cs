@@ -9,4 +9,6 @@ public interface ITransaction
     bool Update(DbTransaction dbTransaction);
 
     bool Delete(int id);
+    IEnumerable<DbTransaction> fetchByIdUser(int id);
+    DbTransaction fetchById(int id);
 }
