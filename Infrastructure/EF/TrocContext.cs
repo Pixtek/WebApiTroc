@@ -16,8 +16,9 @@ public class TrocContext :DbContext
     public DbSet<DbArticle> Articles { get; set; }
     public DbSet<DbCommentary> Commentary { get; set; }
     public DbSet<DbTransaction> Transactions { get; set; }
-    
     public DbSet<DbCategory> categories { get; set; }
+    
+    public DbSet<DbHisotricTransaction> HisotricTransactions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -81,6 +82,7 @@ public class TrocContext :DbContext
             entity.Property(transaction => transaction.Article2).HasColumnName("articles2");
             
         });
+        
         modelBuilder.Entity<DbCategory>(entity =>
         {
             entity.ToTable("Categorie");
@@ -88,5 +90,21 @@ public class TrocContext :DbContext
             entity.Property(category => category.NomCategory).HasColumnName("nomCategorie");
         });
         
+        modelBuilder.Entity<DbHisotricTransaction>(entity =>
+        {
+            entity.ToTable("HistoricTransactions");
+            entity.HasKey(transaction => transaction.Id);
+            entity.Property(transaction => transaction.Id).HasColumnName("id_transaction");
+            entity.Property(transaction => transaction.Dates).HasColumnName("dates");
+            entity.Property(transaction => transaction.Id_User1).HasColumnName("id_user1");
+            entity.Property(transaction => transaction.Id_User2).HasColumnName("id_user2");
+            entity.Property(transaction => transaction.Article1).HasColumnName("articles1");
+            entity.Property(transaction => transaction.Article2).HasColumnName("articles2");
+            entity.Property(transaction => transaction.echange).HasColumnName("trade");
+
+        });
+        
+
+
     }
 }
