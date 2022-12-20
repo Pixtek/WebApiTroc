@@ -5,6 +5,7 @@ using Infrastructure.EF;
 using Infrastructure.EF.Article;
 using Infrastructure.EF.Category;
 using Infrastructure.EF.Commentary;
+using Infrastructure.EF.HistoricArticle;
 using Infrastructure.EF.HistoricTransaction;
 using Infrastructure.EF.JwtAuthentication;
 using Infrastructure.EF.Transaction;
@@ -82,6 +83,9 @@ public class Startup
             
             //historicTransaction
             services.AddScoped<IHistoricTransaction, HistoricTransaction>();
+            
+            //historicArticle
+            services.AddScoped<IHistoricArticle, HistoricArticle>();
 
             services.AddCors(options =>
             {

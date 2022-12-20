@@ -17,8 +17,9 @@ public class TrocContext :DbContext
     public DbSet<DbCommentary> Commentary { get; set; }
     public DbSet<DbTransaction> Transactions { get; set; }
     public DbSet<DbCategory> categories { get; set; }
-    
     public DbSet<DbHisotricTransaction> HisotricTransactions { get; set; }
+    
+    public DbSet<DbHistoricArticle> HistoricArticles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -101,6 +102,18 @@ public class TrocContext :DbContext
             entity.Property(transaction => transaction.Article1).HasColumnName("articles1");
             entity.Property(transaction => transaction.Article2).HasColumnName("articles2");
             entity.Property(transaction => transaction.echange).HasColumnName("trade");
+        });
+        modelBuilder.Entity<DbHistoricArticle>(entity =>
+        {
+            entity.ToTable("HistoricArticles");
+            entity.HasKey(article => article.Id);
+            entity.Property(article => article.Id).HasColumnName("id_Article");
+            entity.Property(article => article.IdUser).HasColumnName("id_User");
+            entity.Property(article => article.CategoryName).HasColumnName("nomCategorie");
+            entity.Property(article => article.Name).HasColumnName("nom");
+            entity.Property(article => article.URLImage).HasColumnName("urlImage");
+            entity.Property(article => article.PublicationDate).HasColumnName("datePubli");
+            entity.Property(article => article.description).HasColumnName("descriptions");
 
         });
         
