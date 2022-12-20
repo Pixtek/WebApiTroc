@@ -175,6 +175,15 @@ public class UserController :ControllerBase
     public ActionResult UpdateUser(String email, String pseudo, String localite, int id)
     {
         return _IUsers.Update(email, pseudo,localite,id) ? NoContent() : NotFound();
+    }  
+    
+    [HttpPut]
+    [Route("setAdmin")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult SetAdmin(bool admin, int id)
+    {
+        return _IUsers.SetAdmin(admin,id) ? NoContent() : NotFound();
     }
     
     [HttpPost]

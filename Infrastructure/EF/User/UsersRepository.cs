@@ -22,7 +22,7 @@ public class UsersRepository : IUsers
         return context.Utilisateurs.ToList();
     }
 
-    public DbUser Create(string email, string pseudo, string localite, string mdp)
+    public DbUser Create(string email, string pseudo, string localite, string mdp, bool isAdmin)
     {
         using var context = _trocContextProvider.NewContext();
         var user2 = context.Utilisateurs.FirstOrDefault(u => u.Email.Equals(email) || u.Pseudo.Equals(pseudo));
@@ -75,7 +75,7 @@ public class UsersRepository : IUsers
         }
         
         
-        var user = new DbUser { Email = email, Pseudo = pseudo, Localite = localite,Mdp = mdp};
+        var user = new DbUser { Email = email, Pseudo = pseudo, Localite = localite,Mdp = mdp, admin = isAdmin};
         
         context.Utilisateurs.Add(user);
         context.SaveChanges();
@@ -132,6 +132,23 @@ public class UsersRepository : IUsers
         {
             return false;
         }
+    }
+
+    public bool SetAdmin(bool admin, int id)
+    {
+        using var context = _trocContextProvider.NewContext();
+        try
+        {
+            var user = context.Utilisateurs.First(a => a.Id == id);
+            user.admin = admin;
+            
+            return context.SaveChanges() == 1;
+        }
+        catch (DbUpdateConcurrencyException e)
+        {
+            return false;
+        }
+        
     }
     
     

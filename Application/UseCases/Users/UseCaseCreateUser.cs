@@ -15,7 +15,7 @@ public class UseCaseCreateUser: IUseCaseWriter<DtoOutputUser, DtoInputCreateUser
 
     public DtoOutputUser Execute(DtoInputCreateUser input)
     {
-        var dbUser = _users.Create(input.Email, input.Pseudo, input.Localite, input.Mdp);
+        var dbUser = _users.Create(input.Email, input.Pseudo, input.Localite, input.Mdp, input.admin);
         return Mapper.GetInstance().Map<DtoOutputUser>(dbUser);
     }
 }
