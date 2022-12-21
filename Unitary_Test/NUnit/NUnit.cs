@@ -1,5 +1,7 @@
-﻿using Infrastructure.EF.Article;
+﻿using Infrastructure.EF;
+using Infrastructure.EF.Article;
 using Infrastructure.EF.DbEntities;
+using Infrastructure.EF.User;
 using NUnit.Framework;
 
 
@@ -9,6 +11,7 @@ namespace Nunit.NUnit
     [TestFixture]
     public class NUnit
     {
+        
 
         private DbArticle _article;
         private ArticleRepository _articleRepository;
@@ -23,7 +26,14 @@ namespace Nunit.NUnit
         [Test]
         public void GetArticle_ReturnsArticleList()
         {
-           
+            int test = 3;
+            
+            
+
         }
+        
+
+
+
     }
 }

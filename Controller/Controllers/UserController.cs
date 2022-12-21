@@ -109,7 +109,7 @@ public class UserController :ControllerBase
                 new Claim("localite", user.Localite)
             };
             var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
-            Response.Cookies.Append("cookie", token, new CookieOptions()
+            Response.Cookies.Append("AUTH_COOKIE", token, new CookieOptions()
             {
                 HttpOnly = true,
                 Secure = true
@@ -192,8 +192,40 @@ public class UserController :ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult Disconnect()
     {
-        Response.Cookies.Delete("cookie");
+        Response.Cookies.Delete("AUTH_COOKIE");
         return Ok();
+    }
+    
+    [HttpPost]
+    [Route("connexion")]
+    public ActionResult<Users> Connexion(String email, String mdp)
+    {
+        var user = _jwtAuthenticationService.Authenticate(email, mdp);
+
+        if (user != null)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim("id", user.Id.ToString()),
+                new Claim("email",user.Email),
+                new Claim("pseudo", user.Pseudo),
+                new Claim("localite", user.Localite)
+            };
+            var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
+            Response.Cookies.Append("AUTH_COOKIE", token, new CookieOptions()
+            {
+                HttpOnly = true,
+                Secure = true
+            });
+
+            Response.Cookies.Append("cookieNonSecurise", token, new CookieOptions()
+            {
+                HttpOnly = true,
+                Secure = false
+            });
+            return Ok(user);
+        }
+        return Unauthorized(null);
     }
 
     

@@ -39,7 +39,7 @@ public class AuthenticationController : ControllerBase
             };
             var token = _jwtAuthenticationService.GenerateToken(_config["Jwt:Key"], claims);
             
-            Response.Cookies.Append("cookie", token, new CookieOptions()
+            Response.Cookies.Append("AUTH_COOKIE", token, new CookieOptions()
             {
                 HttpOnly = false,
                 Secure = false

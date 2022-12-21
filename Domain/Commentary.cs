@@ -8,4 +8,9 @@ public class Commentary
     public string Message { get; set; }
     public int Id_User { get; set; }
     
+    public bool IsPositive()
+    {
+        return Note > 4;
+    }
+    
 }

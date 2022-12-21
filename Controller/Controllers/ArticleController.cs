@@ -3,6 +3,7 @@ using Domain;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
 using Infrastructure.EF.DbEntities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiTroc.Controllers;
@@ -31,6 +32,7 @@ public class ArticleController : ControllerBase
         return Ok(_IArticle.Create(idUser, name, urlImage, publicationDate, nomCat, description));
     }
     
+    [Authorize]
     [HttpPost]
     [Route("Create")]
     public ActionResult<Article> Create(string name, string urlImage,
@@ -80,8 +82,9 @@ public class ArticleController : ControllerBase
         }
     }
     
+    [Authorize]
     [HttpGet]
-    [Route("Id_Users/")]
+    [Route("Id_Users")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -91,9 +94,7 @@ public class ArticleController : ControllerBase
         var id = User.Claims.First(claim => claim.Type == "id").Value;
         var idUser = Convert.ToInt32(id);
         return _IArticle.FetchById_Users(idUser);
-
     }
-    
     
     
     [HttpGet]

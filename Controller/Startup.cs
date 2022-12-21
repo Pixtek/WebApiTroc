@@ -55,7 +55,7 @@ public class Startup
                 {
                     OnMessageReceived = context =>
                     {
-                        context.Token = context.Request.Cookies["cookie"];
+                        context.Token = context.Request.Cookies["AUTH_COOKIE"];
                         return Task.CompletedTask;
                     }
                 };
