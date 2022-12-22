@@ -12,6 +12,7 @@ public class Article
     
     public int IdUser { get; set; }
     
+    
     public bool IsInCategory(string categoryName)
     {
         return CategoryName.Equals(categoryName, StringComparison.OrdinalIgnoreCase);

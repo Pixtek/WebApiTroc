@@ -1,7 +1,6 @@
 ﻿using Domain;
 using NUnit.Framework;
 
-
 namespace UnitTests
 {
 using NUnit.Framework;

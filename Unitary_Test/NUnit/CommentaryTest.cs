@@ -27,7 +27,7 @@ namespace UnitTests
                     Note = note,
                     Nom = nom,
                     Message = message,
-                    Id_User = idUser
+                    IdUser = idUser
                 };
 
                 // Assert
@@ -35,7 +35,7 @@ namespace UnitTests
                 Assert.AreEqual(note, commentary.Note);
                 Assert.AreEqual(nom, commentary.Nom);
                 Assert.AreEqual(message, commentary.Message);
-                Assert.AreEqual(idUser, commentary.Id_User);
+                Assert.AreEqual(idUser, commentary.IdUser);
             }
 
             [Test]

@@ -21,6 +21,19 @@ public class Users
         }
     }
 
+
+    public bool IsPseudoValid()
+    {
+        const int MIN_LENGTH = 3;
+        const int MAX_LENGTH = 20;
+        if (Pseudo.Length < MIN_LENGTH || Pseudo.Length > MAX_LENGTH)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     public bool IsPasswordStrong()
     {
         const int MIN_LENGTH = 8;

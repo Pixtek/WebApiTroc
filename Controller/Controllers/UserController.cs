@@ -174,7 +174,18 @@ public class UserController :ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult UpdateUser(String email, String pseudo, String localite, int id)
     {
-        return _IUsers.Update(email, pseudo,localite,id) ? NoContent() : NotFound();
+        try
+        {
+            return _IUsers.Update(email, pseudo,localite,id) ? NoContent() : NotFound();
+        }
+        catch (Exception e)
+        {
+            return NotFound("Vous n'avez rien modifié");
+        }
+           
+        
+
+
     }  
     
     [HttpPut]

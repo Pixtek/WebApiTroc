@@ -1,5 +1,7 @@
 ﻿
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using Infrastructure.EF.DbEntities;
 using Microsoft.EntityFrameworkCore;
@@ -25,10 +27,11 @@ public class UsersRepository : IUsers
     public DbUser Create(string email, string pseudo, string localite, string mdp, bool isAdmin)
     {
         using var context = _trocContextProvider.NewContext();
+        
         var user2 = context.Utilisateurs.FirstOrDefault(u => u.Email.Equals(email) || u.Pseudo.Equals(pseudo));
         if (user2 != null)
         {
-            throw new KeyNotFoundException($"User with pseudo {pseudo} AND/OR email {email} exist");
+            throw new KeyNotFoundException($"L'utilisateur avec le pseudo {pseudo} ET/OU l'email {email} existe deja");
         }
         
         Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$"); 
@@ -73,9 +76,9 @@ public class UsersRepository : IUsers
         {
             throw new SyntaxErrorException($"Le pseudo doit contenir au moins 4 caractères");
         }
-        
-        
-        var user = new DbUser { Email = email, Pseudo = pseudo, Localite = localite,Mdp = mdp, admin = isAdmin};
+
+        var user = new DbUser { Email = email, Pseudo = pseudo, Localite = localite,Mdp = HashPassword(mdp), admin = isAdmin};
+            
         
         context.Utilisateurs.Add(user);
         context.SaveChanges();
@@ -119,13 +122,14 @@ public class UsersRepository : IUsers
     public bool Update(String email, String pseudo, String localite, int id)
     { 
         using var context = _trocContextProvider.NewContext();
+       
         try
         {
             var user = context.Utilisateurs.First(a => a.Id == id);
             user.Email = email;
             user.Localite = localite;
             user.Pseudo = pseudo;
-            
+
             return context.SaveChanges() == 1;
         }
         catch (DbUpdateConcurrencyException e)
@@ -149,6 +153,39 @@ public class UsersRepository : IUsers
             return false;
         }
         
+    }
+    
+    public static string HashPassword(string password)
+    {
+        using (SHA256 sha256Hash = SHA256.Create())
+        {
+            // Convertir le mot de passe en tableau d'octets et le passer à la méthode ComputeHash
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            // Créer un StringBuilder pour stocker le hash
+            StringBuilder builder = new StringBuilder();
+
+            // Formater chaque octet du hash en hexadécimal et l'ajouter au StringBuilder
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+
+            // Renvoyer le hash sous forme de chaîne de caractères
+            return builder.ToString();
+        }
+    }
+    
+    public static bool VerifyPassword(string password, string hash)
+    {
+        using (SHA256 sha256Hash = SHA256.Create())
+        {
+            // Hasher le mot de passe donné
+            string passwordHash = HashPassword(password);
+
+            // Vérifier si le hash du mot de passe donné correspond au hash stocké
+            return hash == passwordHash;
+        }
     }
     
     

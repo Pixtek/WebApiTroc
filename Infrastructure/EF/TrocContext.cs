@@ -41,7 +41,7 @@ public class TrocContext :DbContext
             entity.Property(utilisateur => utilisateur.Pseudo).HasColumnName("pseudo");
             entity.Property(utilisateur => utilisateur.Localite).HasColumnName("localite");
             entity.Property(utilisateur => utilisateur.Mdp).HasColumnName("mdp");
-            entity.Property(utilisateur => utilisateur.admin).HasColumnName("admins");
+            entity.Property(utilisateur => utilisateur.admin).HasColumnName("admin");
         });
 
         modelBuilder.Entity<DbArticle>(entity =>

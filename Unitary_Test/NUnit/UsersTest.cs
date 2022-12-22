@@ -3,78 +3,149 @@ using NUnit.Framework;
 
 namespace UnitTests
 {
+    [TestFixture]
     public class UsersTests
     {
-
         [Test]
-        public void TestConstructor()
+        public void IsEmailValid_ValidEmail_ReturnsTrue()
         {
             // Arrange
-            var id = 1;
-            var email = "test@example.com";
-            var pseudo = "testuser";
-            var localite = "Paris";
-            var mdp = "password";
+            var user = new Users();
+            user.Email = "test@example.com";
 
             // Act
-            var user = new Users
-            {
-                Id = id,
-                Email = email,
-                Pseudo = pseudo,
-                Localite = localite,
-                Mdp = mdp
-            };
+            bool result = user.IsEmailValid();
 
             // Assert
-            Assert.AreEqual(id, user.Id);
-            Assert.AreEqual(email, user.Email);
-            Assert.AreEqual(pseudo, user.Pseudo);
-            Assert.AreEqual(localite, user.Localite);
-            Assert.AreEqual(mdp, user.Mdp);
+            Assert.IsTrue(result);
         }
 
         [Test]
-        public void TestEmailValidity()
+        public void IsEmailValid_InvalidEmail_ReturnsFalse()
         {
             // Arrange
-            var invalidEmails = new[] { "invalid", "invalid@", "@invalid.com" };
-            var validEmails = new[] { "valid@example.com", "valid@sub.example.com" };
+            var user = new Users();
+            user.Email = "invalidemail";
 
-            // Act and Assert
-            foreach (var email in invalidEmails)
-            {
-                var user = new Users { Email = email };
-                Assert.IsFalse(user.IsEmailValid(), $"{email} should be invalid");
-            }
+            // Act
+            bool result = user.IsEmailValid();
 
-            foreach (var email in validEmails)
-            {
-                var user = new Users { Email = email };
-                Assert.IsTrue(user.IsEmailValid(), $"{email} should be valid");
-            }
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void IsPseudoValid_ValidPseudo_ReturnsTrue()
+        {
+            // Arrange
+            var user = new Users();
+            user.Pseudo = "validpseudo";
+
+            // Act
+            bool result = user.IsPseudoValid();
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void IsPseudoValid_InvalidPseudoTooShort_ReturnsFalse()
+        {
+            // Arrange
+            var user = new Users();
+            user.Pseudo = "a";
+
+            // Act
+            bool result = user.IsPseudoValid();
+
+            // Assert
+            Assert.IsFalse(result);
         }
 
 
+
         [Test]
-        public void TestPasswordStrength()
+        public void IsPasswordStrong_InvalidPasswordTooShort_ReturnsFalse()
         {
             // Arrange
-            var weakPasswords = new[] { "password", "123456", "abcdef" };
-            var strongPasswords = new[] { "PaSsWoRd1!", "sTr0nGPa5s!", "p@5sW0rD" };
+            var user = new Users();
+            user.Mdp = "short";
 
-            // Act and Assert
-            foreach (var password in weakPasswords)
-            {
-                var user = new Users { Mdp = password };
-                Assert.IsFalse(user.IsPasswordStrong(), $"{password} should be weak");
-            }
+            // Act
+            bool result = user.IsPasswordStrong();
 
-            foreach (var password in strongPasswords)
-            {
-                var user = new Users { Mdp = password };
-                Assert.IsTrue(user.IsPasswordStrong(), $"{password} should be strong");
-            }
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void IsPasswordStrong_InvalidPasswordTooLong_ReturnsFalse()
+        {
+            // Arrange
+            var user = new Users();
+            user.Mdp = "thispasswordiswaytoolongandinvalid";
+
+            // Act
+            bool result = user.IsPasswordStrong();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void IsPasswordStrong_InvalidPasswordNoUpperCase_ReturnsFalse()
+        {
+            // Arrange
+            var user = new Users();
+            user.Mdp = "nouppercase1";
+
+            // Act
+            bool result = user.IsPasswordStrong();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void IsPasswordStrong_InvalidPasswordNoLowerCase_ReturnsFalse()
+        {
+            // Arrange
+            var user = new Users();
+            user.Mdp = "NOLOWERCASE1";
+
+            // Act
+            bool result = user.IsPasswordStrong();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void IsPasswordStrong_InvalidPasswordNoDigits_ReturnsFalse()
+        {
+            // Arrange
+            var user = new Users();
+            user.Mdp = "NoDigits";
+
+            // Act
+            bool result = user.IsPasswordStrong();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void IsPasswordStrong_InvalidPasswordNoSymbols_ReturnsFalse()
+        {
+            // Arrange
+            var user = new Users();
+            user.Mdp = "NoSymbols1";
+
+            // Act
+            bool result = user.IsPasswordStrong();
+
+            // Assert
+            Assert.IsFalse(result);
         }
     }
 }
