@@ -4,55 +4,24 @@ using Application.UseCases.Users.Dto;
 using Domain;
 using Infrastructure.EF;
 using Infrastructure.EF.Article;
+using Infrastructure.EF.Commentary;
+using Infrastructure.EF.Transaction;
 using Infrastructure.EF.User;
 using WebApiTroc;
 
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IConnectionStringProvider, ConnectionStringProvider>();
-builder.Services.AddScoped<IArticle, ArticleRepository>();
-builder.Services.AddScoped<IUsers, UsersRepository>();
-builder.Services.AddScoped<TrocContextProvider>();
-
-//users
-builder.Services.AddScoped<UseCaseFetchById>();
-builder.Services.AddScoped<UseCaseCreateUser>();
-builder.Services.AddScoped<UseCaseFetchByPseudo>();
-
-builder.Services.AddCors(options =>
+public class Program
 {
-    options.AddPolicy("Dev", policyBuilder =>
+    public static void Main(string[] args)
     {
-        policyBuilder.WithOrigins("http://localhost:4200")
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    });
-});
+        CreateHostBuilder(args).Build().Run();
+    }
 
-var app = builder.Build();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
-
-app.UseCors("Dev");
-
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

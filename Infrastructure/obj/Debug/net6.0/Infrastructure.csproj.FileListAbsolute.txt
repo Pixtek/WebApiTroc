@@ -1,14 +1,11 @@
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
-C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.dll
-C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.pdb
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
 C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
@@ -52,3 +49,24 @@ C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastr
 C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
 C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
 C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.pdb
+C:\Users\De Gendt Damien\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.pdb
+C:\Users\Florian\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\bin\Debug\net6.0\Domain.pdb
+C:\Users\mathi\RiderProjects\WebApiTroc\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
