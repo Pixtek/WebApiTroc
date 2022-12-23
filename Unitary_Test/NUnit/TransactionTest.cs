@@ -9,7 +9,6 @@ namespace UnitTests
         [Test]
         public void TestTransactionProperties()
         {
-            // Arrange
             var transaction = new Transaction
             {
                 Id = 1,
@@ -20,15 +19,13 @@ namespace UnitTests
                 Article2 = "Article 2"
             };
 
-            // Act
             var id = transaction.Id;
             var dates = transaction.Dates;
             var idUser1 = transaction.Id_User1;
             var idUser2 = transaction.Id_User2;
             var article1 = transaction.Article1;
             var article2 = transaction.Article2;
-
-            // Assert
+            
             Assert.AreEqual(1, id);
             Assert.AreEqual(new DateTime(2020, 1, 1), dates);
             Assert.AreEqual(100, idUser1);
