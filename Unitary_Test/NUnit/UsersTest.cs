@@ -51,14 +51,11 @@ namespace UnitTests
         [Test]
         public void IsPseudoValid_InvalidPseudoTooShort_ReturnsFalse()
         {
-            // Arrange
             var user = new Users();
             user.Pseudo = "a";
-
-            // Act
+            
             bool result = user.IsPseudoValid();
-
-            // Assert
+            
             Assert.IsFalse(result);
         }
 
@@ -67,14 +64,11 @@ namespace UnitTests
         [Test]
         public void IsPasswordStrong_InvalidPasswordTooShort_ReturnsFalse()
         {
-            // Arrange
             var user = new Users();
             user.Mdp = "short";
-
-            // Act
+            
             bool result = user.IsPasswordStrong();
-
-            // Assert
+            
             Assert.IsFalse(result);
         }
 
